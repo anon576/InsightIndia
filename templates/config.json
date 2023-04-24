@@ -17,7 +17,7 @@
         "mailPassword":"hngelfyrizigeepo",
         "admin" : "Abhishek22",
         "adminPassword" : "kuchtohogaabyadnhiarha",
-        "uploadLocation" : "C:\\Web development\\Projects\\Insightindia\\static\\blogimg"
+        "uploadLocation" : "..\\static\\blogimg"
     
     }
 }
