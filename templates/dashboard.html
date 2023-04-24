@@ -1,0 +1,89 @@
+{% extends 'base.html' %}   
+{% block body %}
+<div class="im col-xxl-14 px-1 py-1">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="{{ url_for('static',filename='img/homelogo.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
+          loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{params["blogName"]}} : {{params["tagLine"]}}</h1>
+        <p class="lead">{{params["blogIntro"]}}</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a class="btn btn-primary" href="/explore"> <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Explore</button></a>
+         
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Current</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <h1 class="d-flex justify-content-center">Welcome to Dashboard</h1>
+
+    <div class="container my-3">
+        <h2>Your blogs</h2><table class="table">
+        
+        <tbody>
+          {% if blog|length == 0 %}
+          <div class="alert alert-light" role="alert">
+           No Blog
+          </div>
+          {% else %}
+          <thead>
+            <tr>
+              <th scope="col">S. No</th>
+              <th scope="col">Title</th>
+              <th scope="col">Subtitle</th>
+              <th scope="col">Content</th>
+              <th scope="col">Date</th>
+              <th scope="col">Author</th>
+            </tr>
+          </thead>
+            
+          
+        
+            {% for b in blog %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{b.title}}</td>
+                <td>{{b.subtitle}}</td>
+                <td>{{b.content[0:5]}}</td>
+                <td>{{b.author}}</td>
+                <td>{{b.date}}</td>
+                <td><a href="/update/{{b.slug}}"><button type="button" class="btn btn-outline-dark btn-sm mx-1">Update</button></a><a href="/delate/{{b.slug}}"><button type="button" class="btn btn-outline-dark btn-sm mx-1">Delate</button></a></td>
+      
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+           
+            {% endif %}
+          <hr>
+          <a href="/logout"><button type="button" class="btn btn-primary btn-lg my-3">Log out</button></a>
+          <a href="/blogAdmin"><button type="button" class="btn btn-primary btn-lg my-3">Add New Blog</button></a><hr>
+          <h3 class="my-3">Contact From Request</h3>
+          <table class="table my-3">
+            <thead>
+              <tr>
+                <th scope="col">sno</th>
+                <th scope="col">name</th>
+                <th scope="col">Phone NO</th>
+                <th scope="col">Email</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+             {% for entry in entry  %}
+             <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{entry.name}}</td>
+                <td>{{entry.phoneNo}}</td>
+                <td>{{entry.email}}</td>
+                <td>{{entry.desc}}</td>
+                <td><a href="mailto: {{entry.email}}"><button type="button" class="btn btn-outline-dark btn-sm mx-1">Reply</button></a></td>
+                
+              </tr>
+             {% endfor %}
+              
+            </tbody>
+          </table>
+{% endblock body %}

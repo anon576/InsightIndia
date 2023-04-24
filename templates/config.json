@@ -1,0 +1,23 @@
+{
+    "params":{
+        "localServer":"True",
+        "localUrl":"sqlite:///contact.db",
+        "blogUrl": "sqlite:///blog.db",
+        "newsletter":"sqlite:///newsletter.db",
+        "userdb":"sqlite:///userdb.db",
+        "prodUrl":"sqlite:///contact.db",
+        "blogName":"InsightIndia",
+        "tagLine":"Insight of Geopolitics of India and World",
+        "blogIntro":"Stay ahead of the curve with InsightIndia. Our expert coverage of India's news and views brings you the stories that matter. Get the inside track on politics, business, and culture with our in-depth analysis and expert insights.",
+        "twitter":"twitter.com",
+        "instagram":"instagram.com",
+        "linkdIn":"Linkdlin.com",
+        "github":"Github.com",
+        "mailUser":" abc@gmail.com",
+        "mailPassword":"hngelfyrizigeepo",
+        "admin" : "Abhishek22",
+        "adminPassword" : "kuchtohogaabyadnhiarha",
+        "uploadLocation" : "C:\\Web development\\Projects\\Insightindia\\static\\blogimg"
+    
+    }
+}

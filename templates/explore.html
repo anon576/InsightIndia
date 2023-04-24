@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<div class="im col-xxl-14 px-1 py-1">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col-10 col-sm-8 col-lg-6">
+      <img src="{{ url_for('static',filename='img/homelogo.png') }}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500"
+        loading="lazy">
+    </div>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">{{params["blogName"]}} : {{params["tagLine"]}}</h1>
+      <p class="lead">{{params["blogIntro"]}}</p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" href="/explore"> <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Explore</button></a>
+        
+        <a class="btn btn-outline-secondary" href="/blog/{{blog|length}}"><button type="button" class="btn btn-lg px-4">Current</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="im my-3">
+  <div class="row mb-2 ">
+    {% for b in blog %}
+    {% if b.slug|int%2!=0 %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Trending</strong>
+            <h3 class="mb-0">{{b.title}}</h3>
+            <div class="mb-1 text-body-secondary">{{b.date}}</div>
+            <p class="card-text mb-auto">{{b.content[0:200]|safe}}....</p>
+            <a href="/blog/{{b.slug}}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">View</button></a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img src="{{ url_for('static', filename='blogimg/' + b.slug + '.jpg') }}" alt="" width="200" height="250">
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      
+
+     
+      {% if b.slug|int%2==0 %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-success">Featured Post</strong>
+            <h3 class="mb-0">{{b.title}}</h3>
+            <div class="mb-1 text-body-secondary">{{b.date}}</div>
+            <p class="mb-auto">{{b.content[0:200]|safe}}....</p>
+            <a href="/blog/{{b.slug}}"><button type="button" class="btn btn-primary btn-lg px-4 me-md-2">View</button></a>
+          </div>
+          <div class="col-auto d-none d-lg-block">
+            <img src="{{ url_for('static', filename='blogimg/' + b.slug + '.jpg') }}" alt="" width="200" height="250">
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      
+      {% endfor %}
+    </div>
+</div>
+
+ 
+{% endblock body %}

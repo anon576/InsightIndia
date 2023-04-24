@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="container">
+  <form action="\blogAdmin" method="POST" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="slug" class="form-label">Slug</label>
+      <input type="text" class="form-control" name="slug" id="slug" placeholder="Blog's sluge">
+    </div>
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" name="title" id="title" placeholder="Blog's Title">
+    </div>
+    <div class="mb-3">
+      <label for="subtitle" class="form-label">Sub Title</label>
+      <input type="text" class="form-control" name="subtitle" id="subtitle" placeholder="Blog's subTitle">
+    </div>
+    <div class="mb-3">
+      <label for="subtitle" class="form-label">Image</label>
+      <input type="file" name="file1">
+    </div>
+      
+  
+    <!-- <div class="mb-3">
+      <label for="formFile" class="form-label">Image</label>
+      <input class="form-control" type="file" id="formFile">
+    </div> -->
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input type="text" class="form-control" name="author" id="author" placeholder="Blog's author">
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">content</label>
+      <textarea class="form-control" name="content" id="content" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-dark">Submit</button>
+  </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="d-flex justify-content-center align-items-center">
+  <div class="nv my-3">
+    <h2>Join Us</h2>
+  <form action="/signin" method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" id="name"> 
+      </div>   
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email" id="email" > 
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" name="password" id="password"> 
+      </div>
+      <div class="mb-3">
+        <label for="fpass" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" name="fpass" id="fpass"> 
+      </div>
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> By Joining you are subscribing our monthly news later
+ </label>
+      </div>
+
+      <button type="submit" class="btn btn-dark">Join</button>
+      <!-- {% if user.password == user.f  %}
+      <script>alert("done")</script>
+      {% else %}
+      <script>alert("Password done not match")</script>
+      {% endif %}
+       -->
+    </form>
+  </div>
+</div>
+
+
+
+{% endblock body %}
