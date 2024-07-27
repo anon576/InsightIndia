@@ -262,3 +262,7 @@ def logout():
      if("user" in session and session["user"]==params["admin"]):
         session.pop("user")
         return redirect("/dashboard")
+     
+
+
+app.run()
